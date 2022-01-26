@@ -1,7 +1,5 @@
 package com.educandoweb.pomodoro.entities;
-
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Task implements Serializable {
@@ -19,8 +18,8 @@ public class Task implements Serializable {
 
 	private Long id;
 	private String title;
-	private String Description;
-	
+	private String description;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -32,7 +31,7 @@ public class Task implements Serializable {
 		super();
 		this.id = id;
 		this.title = title;
-		Description = description;
+		this.description = description;
 		this.user = user;
 	}
 	
@@ -79,11 +78,11 @@ public class Task implements Serializable {
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		description = description;
 	}
 
 	public User getUser() {

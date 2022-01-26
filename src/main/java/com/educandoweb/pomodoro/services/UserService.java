@@ -10,7 +10,8 @@ import com.educandoweb.pomodoro.repositories.UserRepository;
 
 @Service
 public class UserService {
-    @Autowired
+   
+	@Autowired
     private UserRepository repository;
     public List<User> findAll()
     {
@@ -25,6 +26,11 @@ public class UserService {
     public User insert(User obj)
     {
     	return repository.save(obj);
+    }
+    
+    public void delete(Long id)
+    {
+    	repository.deleteById(id);
     }
 }
 

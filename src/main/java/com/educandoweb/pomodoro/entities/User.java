@@ -1,6 +1,7 @@
 package com.educandoweb.pomodoro.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -22,17 +25,11 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
+
 	@OneToMany(mappedBy = "user")
-	private List<Task> tasks;
+	private List<Task> tasks = new ArrayList<>();
 	
-	public List<Task> getTasks() {
-		return tasks;
-	}
-
-
-    
-
-
+   
 	public User()
 	{
 		
@@ -46,6 +43,10 @@ public class User implements Serializable {
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
+	}
+	
+	public List<Task> getTasks() {
+		return tasks;
 	}
 
 
