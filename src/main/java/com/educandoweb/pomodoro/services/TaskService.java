@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.educandoweb.pomodoro.entities.Task;
+import com.educandoweb.pomodoro.entities.User;
 import com.educandoweb.pomodoro.repositories.TaskRepository;
 
 @Service
@@ -23,6 +24,16 @@ public class TaskService {
     {
     	Optional<Task> obj = repository.findById(id);
     	return obj.get();
+    }
+    
+    public Task insert(Task obj)
+    {
+    	return repository.save(obj);
+    }
+    
+    public void delete(Long id)
+    {
+    	repository.deleteById(id);
     }
 
 }

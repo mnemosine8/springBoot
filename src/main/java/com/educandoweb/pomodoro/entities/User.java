@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.OneToOne;
 
 
 
@@ -25,9 +25,11 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
-
+	@OneToOne
+	private TimerConfig timerConfig;
 	@OneToMany(mappedBy = "user")
 	private List<Task> tasks = new ArrayList<>();
+	
 	
    
 	public User()
