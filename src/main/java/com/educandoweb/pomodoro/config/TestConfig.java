@@ -15,7 +15,7 @@ import com.educandoweb.pomodoro.repositories.TimerConfigRepository;
 import com.educandoweb.pomodoro.repositories.UserRepository;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired
