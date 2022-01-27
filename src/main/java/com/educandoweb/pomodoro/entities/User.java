@@ -25,7 +25,7 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
-	@OneToOne
+	@OneToOne(mappedBy = "user")
 	private TimerConfig timerConfig;
 	@OneToMany(mappedBy = "user")
 	private List<Task> tasks = new ArrayList<>();
@@ -99,6 +99,17 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+
+
+	public TimerConfig getTimerConfig() {
+		return timerConfig;
+	}
+
+
+	public void setTimerConfig(TimerConfig timerConfig) {
+		this.timerConfig = timerConfig;
 	}
 
 
