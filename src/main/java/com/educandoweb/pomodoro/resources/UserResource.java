@@ -19,7 +19,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.educandoweb.pomodoro.entities.User;
 import com.educandoweb.pomodoro.services.UserService;
 
+
 @CrossOrigin
+
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
