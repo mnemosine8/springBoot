@@ -20,7 +20,7 @@ import com.educandoweb.pomodoro.entities.User;
 import com.educandoweb.pomodoro.services.UserService;
 
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
 @RequestMapping(value = "/users")
