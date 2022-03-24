@@ -21,7 +21,7 @@ import com.educandoweb.pomodoro.entities.User;
 import com.educandoweb.pomodoro.services.UserService;
 
 
-@CrossOrigin(origins = "https://pomodoro-sb.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
