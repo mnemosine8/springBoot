@@ -40,4 +40,28 @@ public class TaskResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	@PostMapping
+	public ResponseEntity <Task> insert(@RequestBody Task obj)
+	{
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).body(obj);
+       }
+	
+	@DeleteMapping(value ="/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+		
+		
+	}
+	
+	@PutMapping(value="/{id}")
+	public ResponseEntity<Task> update(@PathVariable Long id,@RequestBody Task obj)
+	{
+		obj=service.update(id, obj);
+		return ResponseEntity.ok().body(obj);
+		
+	}
+
 }

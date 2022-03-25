@@ -27,10 +27,9 @@ public class Task implements Serializable {
 		
 	}
 
-	public Task(Long id, String title, String description, User user) {
+	public Task(Long id, String description, User user) {
 		super();
 		this.id = id;
-		this.title = title;
 		this.description = description;
 		this.user = user;
 	}
