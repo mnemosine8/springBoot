@@ -17,11 +17,11 @@ public class Task implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private Long id;
-	private String description;
+	public String description;
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	public User user;
 	public Task() {
 		
 	}
