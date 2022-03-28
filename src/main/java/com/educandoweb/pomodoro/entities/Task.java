@@ -15,13 +15,13 @@ public class Task implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id;
-	public String description;
+	private String description;
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	public User user;
+	private User user;
+
 	public Task() {
 		
 	}
