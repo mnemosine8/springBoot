@@ -72,7 +72,7 @@ public class Task implements Serializable {
 	}
 
 	public void setDescription(String description) {
-		description = description;
+		this.description = description;
 	}
 
 	public User getUser() {
