@@ -36,5 +36,24 @@ public class TaskService {
     	repository.deleteById(id);
     }
 
+    public Task update(Long id, Task obj)
+    {
+    	try {
+    		Task entity = repository.getOne(id);
+        	updateData(entity,obj);
+        	return repository.save(entity);
+    	} catch(EntityNotFoundException e)
+    	{
+    		throw new ResourceNotFoundException(id);
+    		
+    	}
+    	
+    }
+
+    private void updateData(Task entity, Task obj) {
+		// TODO Auto-generated method stub
+		entity.setDescription(obj.getDescription());
+	}
+
 }
 
